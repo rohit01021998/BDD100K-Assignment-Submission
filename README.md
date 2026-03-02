@@ -99,6 +99,9 @@ eda_pipeline_output/
 
 <span style="background-color: #FFEB3B; color: #000; padding: 2px 4px; border-radius: 3px;">**Instructions:** View `dashboard.html` side by side with `Task-1-Report.pdf` for a comprehensive analysis overview.</span>
 
+<div style="font-size: 16px; background-color: #E0F2F1; color: #000; padding: 12px; border-radius: 4px; margin-bottom: 20px; border-left: 5px solid #009688;">
+<strong>📝 NOTE:</strong> A copy of the dashboard is also available as a PDF for backup purposes: <code>EDA Dashboard.pdf</code>.
+</div>
 ---
 
 ## Task 2: Model Training
