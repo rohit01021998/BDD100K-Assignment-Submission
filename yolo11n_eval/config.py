@@ -14,7 +14,7 @@ BASE_DIR = os.path.dirname(SCRIPT_DIR)
 WEIGHTS_PATH = os.path.join(SCRIPT_DIR, "yolo11s-weights", "best.pt")
 VAL_IMG_DIR = os.path.join(BASE_DIR, "coco_format_full", "valid")
 GT_ANN_PATH = os.path.join(VAL_IMG_DIR, "_annotations.coco.json")
-PRED_JSON = os.path.join(SCRIPT_DIR, "yolo11s_val_predictions.json")
+PRED_JSON = os.path.join(SCRIPT_DIR, "yolo11n_val_predictions.json")
 BDD_LABELS = os.path.join(
     BASE_DIR,
     "assignment_data_bdd",

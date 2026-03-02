@@ -11,7 +11,7 @@ A comprehensive computer vision pipeline for object detection on the BDD100K dat
 - [Task 1: Exploratory Data Analysis (EDA)](#task-1-exploratory-data-analysis-eda)
 - [Task 2: Model Training](#task-2-model-training)
 - [Task 3: Model Evaluation](#task-3-model-evaluation)
-- [Project Structure](#project-structure)
+- [Important Note](#important-note)
 
 ## Prerequisites
 - Python 3.8+
@@ -34,7 +34,7 @@ Please refer to the <code>instructions.txt</code> file located inside each of th
 
 <div style="font-size: 16px; background-color: #FFEB3B; color: #000; padding: 8px; border-radius: 4px; margin-bottom: 15px;"><strong>⚠️ INSTRUCTIONS:</strong> View dashboard.html side by side with Task-1-Report.pdf for a comprehensive analysis overview.</div>
 
-## Container Setup and Getting the Live Dashboard
+### Container Setup and Getting the Live Dashboard
 
 Pull and run the pre-built Docker image to explore the EDA dashboard without any local setup.
 
@@ -64,7 +64,7 @@ Once the server is running, open the following URL in your **host** browser:
 http://localhost:8000/dashboard.html
 ```
 
-## Local Setup (Non-Containerized)
+### Local Setup (Non-Containerized)
 
 ### Setup
 ```bash
@@ -166,17 +166,17 @@ Evaluate both trained models using their respective evaluation pipelines.
 
 ```bash
 # Step 1: Run inference (generates predictions JSON)
-python -m yolo11s_eval.inference
+python -m yolo11n_eval.inference
 
 # Step 2: Generate all plots & metrics
-python -m yolo11s_eval.evaluation
+python -m yolo11n_eval.evaluation
 
 # Step 3: Load data into FiftyOne (only needed once)
-python -m yolo11s_eval.voxel51_eval
-python -m yolo11s_eval.add_scene_metadata
+python -m yolo11n_eval.voxel51_eval
+python -m yolo11n_eval.add_scene_metadata
 
 # Step 4: Launch FiftyOne browser app (reusable anytime after step 2)
-python -m yolo11s_eval.fo_launch
+python -m yolo11n_eval.fo_launch
 ```
 
 ### RF-DETR Evaluation
@@ -197,7 +197,7 @@ python -m rf_detr_eval.fo_launch
 ```
 
 **Output:**
-- Prediction JSON files (`yolo11s_val_predictions.json`, `rf_detr_val_predictions.json`)
+- Prediction JSON files (`yolo11n_val_predictions.json`, `rf_detr_val_predictions.json`)
 - Performance metrics and visualizations
 - FiftyOne dataset for interactive exploration
 
