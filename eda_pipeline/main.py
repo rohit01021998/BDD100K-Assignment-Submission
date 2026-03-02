@@ -67,7 +67,7 @@ IMAGE_DIRS = {
 }
 
 # Output directory
-OUTPUT_DIR = str(BASE_DIR / "output")
+OUTPUT_DIR = str(BASE_DIR / "eda_pipeline_output")
 
 # Anomaly detection parameters
 TOP_K_EXTREMES = 3

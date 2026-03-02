@@ -1,6 +1,10 @@
 # BDD100K Assignment Submission
 
-A comprehensive computer vision pipeline for object detection on the BDD100K dataset, featuring exploratory data analysis (EDA), model training, and evaluation for two state-of-the-art detectors: YOLO11n and RF-DETR.
+<div style="font-size: 16px; background-color: #FFEB3B; color: #000; padding: 12px; border-radius: 4px; margin-bottom: 20px; border-left: 5px solid #F57F17;">
+<strong>⚠️ CRITICAL INSTRUCTION:</strong> Please ensure you go through all three reports (Task-1, Task-2, and Task-3). They contain the most important analysis, findings, and explanations required as per the assignment tasks.
+</div>
+
+A comprehensive computer vision pipeline for object detection on the BDD100K dataset, featuring exploratory data analysis (EDA), model training, and evaluation for two detectors: YOLO11n and RF-DETR.
 
 ## Table of Contents
 - [Prerequisites](#prerequisites)
@@ -15,13 +19,56 @@ A comprehensive computer vision pipeline for object detection on the BDD100K dat
 
 **Note:** Each task has its own setup requirements. See the setup section under each task below.
 
+<div style="font-size: 16px; background-color: #E3F2FD; color: #000; padding: 12px; border-radius: 4px; margin-bottom: 20px; border-left: 5px solid #2196F3;">
+<strong>ℹ️ DATASET SETUP:</strong> Before starting, you must ensure the dataset is present in the following folders:
+<ol style="margin-top: 8px; margin-bottom: 8px;">
+  <li><code>assignment_data_bdd/</code></li>
+  <li><code>coco_format_full/</code></li>
+  <li><code>training_scripts/bdd100k_subset/</code></li>
+</ol>
+Please refer to the <code>instructions.txt</code> file located inside each of these folders to download and extract the respective data.
+</div>
+
+
 ## Task 1: Exploratory Data Analysis (EDA)
 
 <div style="font-size: 16px; background-color: #FFEB3B; color: #000; padding: 8px; border-radius: 4px; margin-bottom: 15px;"><strong>⚠️ INSTRUCTIONS:</strong> View dashboard.html side by side with Task-1-Report.pdf for a comprehensive analysis overview.</div>
 
+## Container Setup and Getting the Live Dashboard
+
+Pull and run the pre-built Docker image to explore the EDA dashboard without any local setup.
+
+```bash
+# Step 1: Pull the Docker image
+docker pull rohit01021998/bdd100k-eda:latest
+
+# Step 2: Run the container (use your image ID if the tag doesn't resolve)
+docker run -it -p 8000:8000 rohit01021998/bdd100k-eda:latest bash
+
+# Step 3: Navigate to the data directory
+cd /container_data
+
+# Step 4: Run the EDA pipeline
+python3 -m eda_pipeline.main
+
+# Step 5: Switch to the output directory (dashboard.html will be generated here)
+cd /eda_pipeline_output
+
+# Step 6: Start a simple HTTP server
+python3 -m http.server 8000
+```
+
+Once the server is running, open the following URL in your **host** browser:
+
+```
+http://localhost:8000/dashboard.html
+```
+
+## Local Setup (Non-Containerized)
+
 ### Setup
 ```bash
-pip install -r requirements.txt
+pip install -r requirement.txt
 ```
 
 ### Running EDA
@@ -38,9 +85,19 @@ This will:
 - Identify data patterns and anomalies
 - Create a comprehensive EDA dashboard
 
-**Output:** Analysis reports and visualizations in the `eda_pipeline/` output directory.
+**Output:** Analysis reports and visualizations in the `eda_pipeline_output/` directory.
 
-<span style="background-color: #FFEB3B; color: #000; padding: 2px 4px; border-radius: 3px;">**Intructions** View `dashboard.html` side by side with `Task-1-Report.pdf` for a comprehensive analysis overview.</span>
+**Directory structure of the output folder:**
+
+```text
+eda_pipeline_output/
+├── plots/
+│   └── per_class/
+├── edge_cases/
+└── dashboard.html
+```
+
+<span style="background-color: #FFEB3B; color: #000; padding: 2px 4px; border-radius: 3px;">**Instructions:** View `dashboard.html` side by side with `Task-1-Report.pdf` for a comprehensive analysis overview.</span>
 
 ---
 
@@ -77,13 +134,15 @@ python rf-detr-finetuning-v2-lr-ms.py
 python finish_evaluation.py
 ```
 
-**Note:** Jetson Thor has its own requirements file as its a ARM based system and training script of RF-DETR may not work in x86 systems. For convinience pretrained weights have been kept here (Both are needed):
+**Note:** Jetson Thor has its own requirements file as it's an ARM-based system and the training script for RF-DETR may not work on x86-based systems. For convenience, pretrained weights have been provided here (both are needed):
 - `rf-detr-medium.pth` - Base RF-DETR model
 - `rf_detr_medium_thor_3x_ms_final.pth` - Fine-tuned RF-DETR model
 
-Once we have trained the model we will keep the weights in the main folder so that Task-3 scripts can utilise it. For convinience it has been kept before hand.
+Once the model was trained, the weights were kept in the main folder so that Task-3 scripts could utilize them. For your convenience, this has been set up beforehand.
 
-**Output:** Trained model weights saved in `training_scripts/rf_detr_output/`
+Training details, plots, architecture details, etc. are present in Task-2-Report.pdf.
+
+**Output:** Trained model weights and other analysis will be saved in `training_scripts/rf_detr_output/`
 
 ---
 
@@ -93,7 +152,7 @@ Once we have trained the model we will keep the weights in the main folder so th
 
 ### Setup
 ```bash
-pip install -r requirements.txt
+pip install -r requirement.txt # same as Task-1
 ```
 
 ### Evaluating Models
@@ -139,51 +198,12 @@ python -m rf_detr_eval.fo_launch
 - Performance metrics and visualizations
 - FiftyOne dataset for interactive exploration
 
----
-
-## Project Structure
-
-```
-.
-├── convert2coco.py                 # Dataset format converter
-├── requirements.txt                # Base dependencies
-├── eda_pipeline/                   # Task 1: EDA
-│   ├── main.py
-│   ├── analyzer.py
-│   ├── data_loader.py
-│   ├── outlier_detector.py
-│   ├── visualizer.py
-│   └── dashboard.py
-├── training_scripts/               # Task 2: Training
-│   ├── rf-detr-finetuning-v2-lr-ms.py
-│   ├── yolo-11n-train-bdd100k.ipynb
-│   ├── requirements-training-rfdetr.txt
-│   ├── create-subset.py
-│   └── rf_detr_output/
-├── yolo11s_eval/                   # Task 3: YOLO11n Evaluation
-│   ├── inference.py
-│   ├── evaluation.py
-│   ├── voxel51_eval.py
-│   ├── add_scene_metadata.py
-│   ├── fo_launch.py
-│   └── config.py
-├── rf_detr_eval/                   # Task 3: RF-DETR Evaluation
-│   ├── inference.py
-│   ├── evaluation.py
-│   ├── voxel51_eval.py
-│   ├── add_scene_metadata.py
-│   ├── fo_launch.py
-│   └── config.py
-└── Model Weights
-    ├── rf-detr-medium.pth
-    └── rf_detr_medium_thor_3x_ms_final.pth
-```
+Please refer to Task-3-Report.pdf to see a benchmark comparison of trained models, their benchmarking, and FiftyOne (voxel51) based analysis and insights.
 
 ---
 
-## Notes
 
-- Ensure all dependencies are installed before running each task
-- Model weights should be placed in the root directory or configured in respective config files
-- FiftyOne visualization requires internet access for initial setup
-- For dataset conversion to COCO format, use: `python convert2coco.py`
+## Important Note
+If you are unable to run the repository/scripts locally, please refer to the link below which contains the output folders of the script executions.
+
+[Google Drive Output Folder Link](https://drive.google.com/drive/folders/1CVtsUzLZOH4GUV6NxF-ss4wvhkqe20dD?usp=sharing)
