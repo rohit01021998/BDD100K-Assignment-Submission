@@ -8,8 +8,8 @@ from tqdm import tqdm
 from PIL import Image
 
 # ── Config (Match the original script) ────────────────────────────────────────
-DATASET_DIR  = '/home/thora/Music/Analysis/bdd100k_subset'
-OUTPUT_DIR   = '/home/thora/Music/Analysis/rf_detr_output'
+DATASET_DIR  = 'training_scripts/bdd100k_subset'
+OUTPUT_DIR   = 'training_scripts/rf_detr_output'
 FINAL_WEIGHTS = os.path.join(OUTPUT_DIR, 'rf_detr_medium_thor_3x_ms_final.pth')
 
 NUM_CLASSES  = 10

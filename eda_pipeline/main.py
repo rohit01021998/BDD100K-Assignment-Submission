@@ -21,8 +21,8 @@ from pathlib import Path
 # Configuration — edit these paths to match your setup
 # ---------------------------------------------------------------------------
 
-# Base directory of the BDD100K dataset
-BASE_DIR = Path("/Volumes/RohitSSD/BoschAssingment")
+# Base directory of the BDD100K dataset (auto-detected from script location)
+BASE_DIR = Path(__file__).resolve().parent.parent
 
 # Annotation JSON files (one per split)
 ANNOTATION_PATHS = {
@@ -67,7 +67,7 @@ IMAGE_DIRS = {
 }
 
 # Output directory
-OUTPUT_DIR = str(BASE_DIR / "eda_pipeline_output")
+OUTPUT_DIR = str(BASE_DIR / "output")
 
 # Anomaly detection parameters
 TOP_K_EXTREMES = 3

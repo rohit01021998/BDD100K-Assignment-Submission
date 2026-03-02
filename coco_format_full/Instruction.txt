@@ -1,0 +1,1 @@
+1. Either you can use convert2coco.py to conver the assignment dataset to coco format or you can use download the coco format full dataset at "https://drive.google.com/file/d/1WY5Nw_andK3STpIsa6EO3KqeVDL-YH8E/view?usp=sharing"

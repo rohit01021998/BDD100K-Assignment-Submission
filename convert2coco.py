@@ -1,6 +1,7 @@
 import json
 import os
 import shutil
+from pathlib import Path
 from tqdm import tqdm
 
 
@@ -106,8 +107,8 @@ def create_test_split_symlink(out_dir):
 
 
 if __name__ == '__main__':
-    # ── Input paths ───────────────────────────────────────────────
-    base_dir    = '/Volumes/RohitSSD/BoschAssingment'
+    # ── Input paths (auto-detected from script location) ─────────
+    base_dir    = str(Path(__file__).resolve().parent)
     labels_dir  = os.path.join(base_dir, 'assignment_data_bdd/bdd100k_labels_release/bdd100k/labels')
     images_dir  = os.path.join(base_dir, 'assignment_data_bdd/bdd100k_images_100k/bdd100k/images/100k')
 

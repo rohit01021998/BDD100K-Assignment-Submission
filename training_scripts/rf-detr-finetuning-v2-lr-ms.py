@@ -74,9 +74,9 @@ def setup_jetson_thor():
 
 # ── Config ────────────────────────────────────────────────────────────────────
 
-DATASET_DIR  = '/home/thora/Music/Analysis/bdd100k_subset'
-OUTPUT_DIR   = '/home/thora/Music/Analysis/rf_detr_output'
-WEIGHTS_DIR  = '/home/thora/Music/Analysis/rf_detr_weights'
+DATASET_DIR  = 'training_scripts/bdd100k_subset'
+OUTPUT_DIR   = 'training_scripts/rf_detr_output'
+WEIGHTS_DIR  = 'training_scripts/rf_detr_weights'
 WEIGHTS_FILE = 'rf-detr-medium.pth'
 WEIGHTS_PATH = os.path.join(WEIGHTS_DIR, WEIGHTS_FILE)
 WEIGHTS_URL  = 'https://storage.googleapis.com/com.roboflow-platform.files/rf-detr/rf-detr-medium.pth'

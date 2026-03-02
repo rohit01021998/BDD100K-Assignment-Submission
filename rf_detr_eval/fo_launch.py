@@ -9,16 +9,14 @@ Usage:
 """
 
 import os
+import sysconfig
 import sys
 import time
 
 # Fix builtin-plugin discovery on external drives (FiftyOne #5484)
-_site_pkgs = os.path.join(
-    os.path.dirname(os.path.dirname(os.path.abspath(__file__))),
-    "venv", "lib", "python3.14", "site-packages",
-)
-_plugins = os.path.join(_site_pkgs, "plugins")
-if os.path.isdir(_plugins):
+_site_pkgs = sysconfig.get_path("purelib")
+_plugins = os.path.join(_site_pkgs, "plugins") if _site_pkgs else ""
+if _plugins and os.path.isdir(_plugins):
     os.environ["FIFTYONE_PLUGINS_DIR"] = _plugins
 
 import fiftyone as fo  # noqa: E402

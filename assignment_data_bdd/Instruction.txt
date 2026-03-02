@@ -1,0 +1,2 @@
+1. Download the dataset from "https://drive.google.com/file/d/1NgWX5YfEKbloAKX9l8kUVJFpWFlUO8UT/view"
+2. Download and extract and replace the folder with dataset as outermost folders have same name.

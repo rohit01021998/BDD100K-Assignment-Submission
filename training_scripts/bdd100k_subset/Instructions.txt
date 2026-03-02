@@ -1,0 +1,6 @@
+rfdetr is trained with a statistically similiar subset of original full dataset
+This subset is in coco-format.
+
+Either you can create your own subset using create-subset.py
+or download subset of data from "https://drive.google.com/file/d/1V30OU-8-RsKkIhhygFR6lnRq-tcdA2sx/view?usp=drive_link"
+and replace this folder
