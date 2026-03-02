@@ -3,7 +3,6 @@
 <div style="font-size: 16px; background-color: #FFEB3B; color: #000; padding: 12px; border-radius: 4px; margin-bottom: 20px; border-left: 5px solid #F57F17;">
 <strong>⚠️ CRITICAL INSTRUCTION:</strong> Please ensure you go through all three reports (Task-1, Task-2, and Task-3). They contain the most important analysis, findings, and explanations required as per the assignment tasks.
 </div>
-
 A comprehensive computer vision pipeline for object detection on the BDD100K dataset, featuring exploratory data analysis (EDA), model training, and evaluation for two detectors: YOLO11n and RF-DETR.
 
 ## Table of Contents
