@@ -131,12 +131,16 @@ pip install -r requirements-training-rfdetr.txt
 
 Two object detection models were trained on the BDD100K dataset:
 
+![Training Details Overview](content/training_details.png)
+
 #### YOLO11n Training
 *Trained in Kaggle's default environment*
 
 ```bash
 python yolo-11n-train-bdd100k.ipynb
 ```
+
+![YOLO11n Training Results](content/yolo-training.png)
 
 #### RF-DETR Training
 *Trained on Jetson Thor*
@@ -149,6 +153,8 @@ python finish_evaluation.py
 **Note:** Jetson Thor has its own requirements file as it's an ARM-based system and the training script for RF-DETR may not work on x86-based systems. For convenience, pretrained weights have been provided here (both are needed):
 - `rf-detr-medium.pth` - Base RF-DETR model
 - `rf_detr_medium_thor_3x_ms_final.pth` - Fine-tuned RF-DETR model
+
+![RF-DETR Training Results](content/rfdetr-training.png)
 
 Once the model was trained, the weights were kept in the main folder so that Task-3 scripts could utilize them. For your convenience, this has been set up beforehand.
 
@@ -204,11 +210,21 @@ python -m rf_detr_eval.add_scene_metadata
 # Step 4: Launch FiftyOne browser app (reusable anytime after step 2)
 python -m rf_detr_eval.fo_launch
 ```
+![Evaluation Scores Overview](content/scores.png)
 
 **Output:**
 - Prediction JSON files (`yolo11n_val_predictions.json`, `rf_detr_val_predictions.json`)
 - Performance metrics and visualizations
 - FiftyOne dataset for interactive exploration
+
+<div style="font-size: 16px; background-color: #E8EAF6; color: #000; padding: 12px; border-radius: 4px; margin-bottom: 20px; border-left: 5px solid #3F51B5;">
+<strong>🔍 Qualitative Analysis with FiftyOne:</strong> The validation dataset was queried within the FiftyOne UI to isolate model failure points:
+<ul style="margin-top: 8px; margin-bottom: 0;">
+  <li><strong>False Negative Filtering:</strong> A filter was applied to the ground-truth (GT) labels to identify "extreme" failures where the model missed 10 to 15+ objects in a single image.</li>
+  <li><strong>Cluster Isolation:</strong> These highly problematic scenes were isolated into a dedicated cluster.</li>
+  <li><strong>Observation Extraction:</strong> The cluster was manually reviewed to identify root causes, such as object misclassifications, occlusion, and challenging environmental factors.</li>
+</ul>
+</div>
 
 Please refer to Task-3-Report.pdf to see a benchmark comparison of trained models, their benchmarking, and FiftyOne (voxel51) based analysis and insights.
 
