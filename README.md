@@ -162,8 +162,6 @@ Training details, plots, architecture details, etc. are present in Task-2-Report
 
 **Output:** Trained model weights and other analysis will be saved in `training_scripts/rf_detr_output/`
 
----
-
 ## Task 3: Model Evaluation
 
 <div style="font-size: 16px; background-color: #FFEB3B; color: #000; padding: 8px; border-radius: 4px; margin-bottom: 15px;"><strong>⚠️ INSTRUCTIONS:</strong> View Task-3-report.pdf for detailed analysis and execution of the task</div>
