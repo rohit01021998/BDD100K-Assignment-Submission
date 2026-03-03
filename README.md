@@ -3,9 +3,9 @@
 <div style="font-size: 16px; background-color: #FFEB3B; color: #000; padding: 12px; border-radius: 4px; margin-bottom: 20px; border-left: 5px solid #F57F17;">
 <strong>⚠️ CRITICAL INSTRUCTION:</strong> Please ensure you go through all three reports (Task-1, Task-2, and Task-3). They contain the most important analysis, findings, and explanations required as per the assignment tasks.
 <ul style="margin-top: 10px; margin-bottom: 0;">
-  <li><a href="Task-1-Report.pdf">Task-1-Report.pdf</a></li>
-  <li><a href="Task-2-Report.pdf">Task-2-Report.pdf</a></li>
-  <li><a href="Task-3-Report.pdf">Task-3-Report.pdf</a></li>
+  <li><a href="Task-1-report.pdf">Task-1-report.pdf</a></li>
+  <li><a href="Task-2-report.pdf">Task-2-report.pdf</a></li>
+  <li><a href="Task-3-report.pdf">Task-3-report.pdf</a></li>
   <li>A copy of the Dashboard (contains plots, outliers, anomalies, etc.) as PDF: <a href="EDA Dashboard.pdf">EDA Dashboard.pdf</a></li>
   <li>Generated output from each task (Easy access). Link: <a href="https://drive.google.com/drive/folders/1CVtsUzLZOH4GUV6NxF-ss4wvhkqe20dD?usp=sharing">Google Drive</a></li>
 </ul>
